@@ -10,7 +10,7 @@ Traefik은 go 언어 기반의 오픈소스 reverse proxy 라우터 및 로드�
 
 모든 요청은 Traefik을 거치며 등록된 라우터 규칙에 따라 각 서비스로 전달한다.  
 이때, Traefik이 도커 이벤트를 수신받고 있으므로 레이블 선언만으로 별도 설정없이 등록된다.
-w
+
 ## 예시
 
 먼저 `/etc/hosts`(윈도우는 `%SYSTEMROOT%\System32\drivers\etc\hosts`)에 `whoami.localhost`를 등록한다.
