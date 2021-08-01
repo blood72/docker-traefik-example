@@ -1,0 +1,31 @@
+version: "3.8"
+
+networks:
+  default:
+    name: traefik
+
+services:
+  traefik:
+    image: traefik:livarot
+    container_name: traefik
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 80:80
+      - 8080:8080
+    command:
+      - "--global.checkNewVersion=true"
+      - "--accessLog=true"
+      - "--api=true"
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--log=true"
+      - "--log.level=WARN"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedByDefault=false"
+      - "--providers.docker.network=traefik"
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.traefik.rule=Host(`traefik.dashboard`)"
+#      - "traefik.http.routers.traefik.service=api@internal"
