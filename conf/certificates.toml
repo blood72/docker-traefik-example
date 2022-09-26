@@ -1,0 +1,7 @@
+[[tls.certificates]]
+  certFile = "/certs/_wildcard.example.org.pem"
+  keyFile = "/certs/_wildcard.example.org-key.pem"
+
+[[tls.certificates]]
+  certFile = "/certs/_wildcard.example.com.pem"
+  keyFile = "/certs/_wildcard.example.com-key.pem"

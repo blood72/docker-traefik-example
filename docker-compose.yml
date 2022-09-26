@@ -6,13 +6,16 @@ networks:
 
 services:
   traefik:
-    image: traefik:livarot
+    image: traefik:vacherin #2.8
     container_name: traefik
     restart: always
     volumes:
+      - ./certs:/certs
+      - ./conf:/conf
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - 80:80
+##      - 443:443
       - 8080:8080
     command:
       - "--global.checkNewVersion=true"
@@ -25,7 +28,14 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedByDefault=false"
       - "--providers.docker.network=traefik"
+##      - "--providers.file.directory=/conf/"
+##      - "--providers.file.watch=true"
+#      - "--entryPoints.web.address=:80"
+#      - "--entryPoints.web.forwardedHeaders.insecure=true"
+##      - "--entryPoints.web-secure.address=:443"
+##      - "--entryPoints.web-secure.forwardedHeaders.insecure=true"
 #    labels:
 #      - "traefik.enable=true"
 #      - "traefik.http.routers.traefik.rule=Host(`traefik.dashboard`)"
 #      - "traefik.http.routers.traefik.service=api@internal"
+##      - "traefik.http.routers.traefik.tls=true"
