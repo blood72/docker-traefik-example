@@ -59,6 +59,8 @@ mkcert -install
 mkcert *.example.com
 ```
 
+참고로 루트 도메인이 `localhost`인 경우 인증서가 제대로 동작하지 않을 수 있다\([*](https://stackoverflow.com/questions/7580508)\).
+
 ### 관련 설정 활성화
 - `/conf/certificates.toml`에서 인증서 경로 지정
 
