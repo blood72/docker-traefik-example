@@ -56,7 +56,7 @@ mkcert -install
 
 ### 인증서 발급
 ```
-mkcert *.example.com
+mkcert "*.example.com"
 ```
 
 참고로 루트 도메인이 `localhost`인 경우 인증서가 제대로 동작하지 않을 수 있다\([*](https://stackoverflow.com/questions/7580508)\).
